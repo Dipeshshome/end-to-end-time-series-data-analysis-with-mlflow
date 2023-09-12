@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: TimeSeriesProject
+Version: 0.0.0
+Summary: A small python package for time series data analysis app
+Home-page: https://github.com/entbappy/end-to-end-time-series-data-analysis-with-mlflow
+Author: entbappy
+Author-email: dshome.cse@gmail.com
+Project-URL: Bug Tracker, https://github.com/entbappy/end-to-end-time-series-data-analysis-with-mlflow/issues
+License-File: LICENSE
