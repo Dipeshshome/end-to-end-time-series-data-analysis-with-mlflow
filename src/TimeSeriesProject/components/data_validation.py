@@ -7,6 +7,13 @@ class DataValiadtion:
     def __init__(self, config: DataValidationConfig):
         self.config = config
 
+    def RUL_calculator(self,df, df_max_cycles):
+        max_cycle = df_max_cycles["cycle"]
+        result_frame = df.merge(max_cycle.to_frame(name='max_cycle'), left_on='id', right_index=True)
+        result_frame["RUL"] = result_frame["max_cycle"] - result_frame["cycle"]
+        result_frame.drop(['max_cycle'], axis=1, inplace=True)
+        return result_frame
+
 
     def validate_all_columns(self)-> bool:
         try:
@@ -19,16 +26,17 @@ class DataValiadtion:
                     ,"sensor20","sensor21","sensor22","sensor23"]
             
             data.drop(['sensor22', 'sensor23'], axis=1, inplace=True)
+            data.to_csv('artifacts/data_validation/output_data.csv', index=False)
 
             jet_id_and_rul = data.groupby(['id'])[["id" ,"cycle"]].max()
             jet_id_and_rul.set_index('id', inplace=True)
+            jet_id_and_rul.to_csv('artifacts/data_validation/jet_id_and_rul.csv', index=False)
 
 
             all_cols = list(data.columns)
 
             all_schema = self.config.all_schema.keys()
 
-            
             for col in all_cols:
                 if col not in all_schema:
                     validation_status = False
@@ -38,6 +46,8 @@ class DataValiadtion:
                     validation_status = True
                     with open(self.config.STATUS_FILE, 'w') as f:
                         f.write(f"Validation status: {validation_status}")
+
+            data = self.RUL_calculator(data, jet_id_and_rul)
 
             return validation_status
         

@@ -3,9 +3,8 @@ COLUMNS:
   cycle : int
   op1 : float64
   op2 : float64
-  op2 : float64
+  op3 : float64
   sensor1 : float64
-  sensor2 : float64
   sensor2 : float64
   sensor3 : float64
   sensor4 : float64
@@ -26,3 +25,6 @@ COLUMNS:
   sensor19 : float64
   sensor20 : float64
   sensor21 : float64
+  sensor22 : float64
+  sensor23 : float64
+
