@@ -69,3 +69,110 @@ Source-Age: 0
 [2023-09-12 22:26:54,015: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
 
 x==========x]
+[2023-09-12 23:14:55,935: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:14:55,939: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:14:55,943: INFO: common: yaml file: schema.yaml loaded successfully]
+[2023-09-12 23:14:55,946: INFO: common: created directory at: artifacts]
+[2023-09-12 23:16:30,516: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:16:30,521: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:16:30,536: INFO: common: yaml file: schema.yaml loaded successfully]
+[2023-09-12 23:16:30,539: INFO: common: created directory at: artifacts]
+[2023-09-12 23:16:30,541: INFO: common: created directory at: artifacts/data_validation]
+[2023-09-12 23:28:52,465: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:28:52,468: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:28:52,487: INFO: common: yaml file: schema.yaml loaded successfully]
+[2023-09-12 23:28:52,487: INFO: common: created directory at: artifacts]
+[2023-09-12 23:28:52,497: INFO: common: created directory at: artifacts/data_validation]
+[2023-09-12 23:43:28,989: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-09-12 23:43:28,989: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:43:28,989: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:43:28,989: INFO: common: created directory at: artifacts]
+[2023-09-12 23:43:28,989: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-09-12 23:43:34,197: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 10849659
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "892cc69385a2688f1dc599caa66fd814b80081f939dd62bed7d83ea7298aceb7"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 5AD6:1EB1:28D0BD:30BC9B:6500A341
+Accept-Ranges: bytes
+Date: Tue, 12 Sep 2023 17:43:31 GMT
+Via: 1.1 varnish
+X-Served-By: cache-qpg1249-QPG
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1694540611.717523,VS0,VE777
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 89a80df309460f7049c92ae8e403a2ab7531b8fd
+Expires: Tue, 12 Sep 2023 17:48:31 GMT
+Source-Age: 0
+
+]
+[2023-09-12 23:43:34,649: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-09-12 23:43:34,650: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2023-09-12 23:43:34,653: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:43:34,654: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:43:34,655: INFO: common: created directory at: artifacts]
+[2023-09-12 23:43:34,656: ERROR: main: 'ConfigurationManager' object has no attribute 'schema']
+Traceback (most recent call last):
+  File "F:\Time Series Data Analysis (Upwork)\end-to-end-time-series-data-analysis-with-mlflow\main.py", line 21, in <module>
+    data_ingestion.main()
+  File "F:\Time Series Data Analysis (Upwork)\end-to-end-time-series-data-analysis-with-mlflow\src\TimeSeriesProject\pipeline\stage_02_data_validation.py", line 14, in main
+    data_validation_config = config.get_data_validation_config()
+  File "F:\Time Series Data Analysis (Upwork)\end-to-end-time-series-data-analysis-with-mlflow\src\TimeSeriesProject\config\configuration.py", line 35, in get_data_validation_config
+    schema = self.schema.COLUMNS
+AttributeError: 'ConfigurationManager' object has no attribute 'schema'
+[2023-09-12 23:46:46,047: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-09-12 23:46:46,047: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:46:46,047: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:46:46,064: INFO: common: yaml file: schema.yaml loaded successfully]
+[2023-09-12 23:46:46,066: INFO: common: created directory at: artifacts]
+[2023-09-12 23:46:46,068: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-09-12 23:46:53,942: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 10849659
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "892cc69385a2688f1dc599caa66fd814b80081f939dd62bed7d83ea7298aceb7"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 5AD6:1EB1:28D0BD:30BC9B:6500A341
+Accept-Ranges: bytes
+Date: Tue, 12 Sep 2023 17:46:47 GMT
+Via: 1.1 varnish
+X-Served-By: cache-qpg1242-QPG
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1694540808.653959,VS0,VE1
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 78afce62554b5d87acb46720eab34fe34e9bf3dd
+Expires: Tue, 12 Sep 2023 17:51:47 GMT
+Source-Age: 197
+
+]
+[2023-09-12 23:46:54,302: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-09-12 23:46:54,303: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2023-09-12 23:46:54,307: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-09-12 23:46:54,308: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-09-12 23:46:54,312: INFO: common: yaml file: schema.yaml loaded successfully]
+[2023-09-12 23:46:54,314: INFO: common: created directory at: artifacts]
+[2023-09-12 23:46:54,332: INFO: common: created directory at: artifacts/data_validation]
+[2023-09-12 23:46:54,499: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
