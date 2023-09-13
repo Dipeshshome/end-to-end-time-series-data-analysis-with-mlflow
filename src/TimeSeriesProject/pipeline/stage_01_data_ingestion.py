@@ -1,6 +1,6 @@
-from TimeSeriesProject.config.configuration import ConfigurationManager
-from TimeSeriesProject.components.data_ingestion import DataIngestion
-from TimeSeriesProject import logger
+from src.TimeSeriesProject.config.configuration import ConfigurationManager
+from src.TimeSeriesProject.components.data_ingestion import DataIngestion
+from src.TimeSeriesProject import logger
 
 STAGE_NAME = "Data Ingestion stage"
 
@@ -14,7 +14,6 @@ class DataIngestionTrainingPipeline:
         data_ingestion = DataIngestion(config=data_ingestion_config)
         data_ingestion.download_file()
         data_ingestion.extract_zip_file()
-
 
 
 if __name__ == '__main__':

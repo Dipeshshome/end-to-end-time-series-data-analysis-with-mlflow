@@ -7,7 +7,7 @@ class DataValiadtion:
     def __init__(self, config: DataValidationConfig):
         self.config = config
 
-    def RUL_calculator(self,df, df_max_cycles):
+    def RUL_calculator(self,df,df_max_cycles):
         max_cycle = df_max_cycles["cycle"]
         result_frame = df.merge(max_cycle.to_frame(name='max_cycle'), left_on='id', right_index=True)
         result_frame["RUL"] = result_frame["max_cycle"] - result_frame["cycle"]
@@ -48,6 +48,7 @@ class DataValiadtion:
                         f.write(f"Validation status: {validation_status}")
 
             data = self.RUL_calculator(data, jet_id_and_rul)
+            data.to_csv('artifacts/data_validation/relevent_data.csv', index=False)
 
             return validation_status
         

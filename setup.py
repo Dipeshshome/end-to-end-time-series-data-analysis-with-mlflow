@@ -4,10 +4,10 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 
 REPO_NAME = "end-to-end-time-series-data-analysis-with-mlflow"
-AUTHOR_USER_NAME = "entbappy"
+AUTHOR_USER_NAME = "Dipeshshome"
 SRC_REPO = "TimeSeriesProject"
 AUTHOR_EMAIL = "dshome.cse@gmail.com"
 

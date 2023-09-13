@@ -28,3 +28,6 @@ COLUMNS:
   sensor22 : float64
   sensor23 : float64
 
+TARGET_COLUMN:
+  RUL : int
+
