@@ -30,3 +30,14 @@ class PrepareBaseModelConfig:
     # BATCH_SIZE: int
     # EPOCHS: int
     # CLASSES: int
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    train_data_path: Path
+    test_data_path: Path
+    trained_model_path: Path
+    updated_base_model_path: Path
+    params_batch_size: int
+    params_epochs: int
+    target_column: str

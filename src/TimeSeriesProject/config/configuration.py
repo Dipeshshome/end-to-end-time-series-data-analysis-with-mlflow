@@ -1,6 +1,6 @@
 from src.TimeSeriesProject.constants import *
 from src.TimeSeriesProject.utils.common import read_yaml,create_directories
-from src.TimeSeriesProject.entity.config_entity import (DataIngestionConfig,DataValidationConfig,DataTransformationConfig,PrepareBaseModelConfig)
+from src.TimeSeriesProject.entity.config_entity import (DataIngestionConfig,DataValidationConfig,DataTransformationConfig,PrepareBaseModelConfig,ModelTrainerConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -72,6 +72,28 @@ class ConfigurationManager:
         )
 
         return prepare_base_model_config
+    
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        prepare_base_model = self.config.prepare_base_model
+        params = self.params
+        schema =  self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path = config.train_data_path,
+            test_data_path = config.test_data_path,
+            trained_model_path=Path(config.trained_model_path),
+            updated_base_model_path=Path(prepare_base_model.updated_base_model_path),
+            params_batch_size=params.BATCH_SIZE,
+            params_epochs=params.EPOCHS,
+            target_column = schema.name
+            
+        )
+
+        return model_trainer_config
     
 
 

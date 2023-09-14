@@ -29,5 +29,5 @@ COLUMNS:
   sensor23 : float64
 
 TARGET_COLUMN:
-  RUL : int
+  name : label
 
