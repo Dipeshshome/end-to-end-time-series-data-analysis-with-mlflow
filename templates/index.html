@@ -11,15 +11,58 @@
 <body>
     <h1>Simple Website with Upload and Predict Buttons</h1>
 
-    <input type="file" id="fileInput" accept=".csv"><br><br>
+    <input type="file" id="fileInput" accept=".txt"><br><br>
 
-    <button onclick="uploadFile()">Upload</button>
+    <button type="file" id="fileInput" onclick="uploadFile()">Upload</button>
     <button onclick="predict()">Predict</button>
 
-    <script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script >
+
+        function sendRequest(textData) {
+            
+            const url = 'http://127.0.0.1:8080/predict';  // Replace with your actual local server URL
+            // Replace with your actual server endpoint
+            const data = { text: textData };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the server responds with JSON
+            })
+            .then(responseData => {
+                console.log('Request successful:', responseData);
+        // Process the server response as needed
+            })
+            .catch(error => {
+                console.error('Request failed:', error);
+        // Handle errors
+            });
+        }
+
+
         function uploadFile() {
             const fileInput = document.getElementById('fileInput');
             const file = fileInput.files[0];
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const textContent = event.target.result;
+                sendRequest(textContent);  // Send the text content to the server
+            }
+
+            reader.readAsText(file);
 
             // You can add file upload logic here
             console.log('File uploaded:', file.name);

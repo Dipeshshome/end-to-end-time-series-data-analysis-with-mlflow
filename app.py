@@ -13,7 +13,7 @@ CORS(app)
 
 class ClientApp:
     def __init__(self):
-        self.filename = "inputImage.jpg"
+        self.filename = "inputText.txt"
         self.classifier = PredictionPipeline(self.filename)
 
 
@@ -22,5 +22,21 @@ class ClientApp:
 def home():
     return render_template('index.html')
 
+@app.route("/train", methods=['GET','POST'])
+@cross_origin()
+def trainRoute():
+    os.system("python main.py")  #dvc repro can be used here
+    return "Training done successfully!"
+
+@app.route("/predict", methods=['POST'])
+@cross_origin()
+def predictRoute():
+    text = request.json['text']
+    with open(clApp.filename, 'w') as file:
+        file.write(text)
+    result = clApp.classifier.predict()  # Assuming this method processes the text and provides predictions
+    return jsonify(result)
+
 if __name__=="__main__":
+    clApp = ClientApp()
     app.run(host="0.0.0.0", port=8080, debug=True)
