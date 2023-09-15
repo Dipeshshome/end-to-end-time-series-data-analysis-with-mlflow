@@ -19,6 +19,7 @@ class DataValiadtion:
         try:
             validation_status = None
 
+            #Traiing Data
             data = pd.read_csv(self.config.unzip_data_dir,sep=" ", header=None)
             data.columns = ["id","cycle","op1","op2","op3","sensor1","sensor2","sensor3","sensor4","sensor5"
                     ,"sensor6","sensor7","sensor8","sensor9","sensor10","sensor11","sensor12","sensor13"
@@ -31,6 +32,21 @@ class DataValiadtion:
             jet_id_and_rul = data.groupby(['id'])[["id" ,"cycle"]].max()
             jet_id_and_rul.set_index('id', inplace=True)
             jet_id_and_rul.to_csv('artifacts/data_validation/jet_id_and_rul.csv', index=False)
+
+            #Testing Data
+            test_data = pd.read_csv(self.config.unzip_data_dir_2,sep=" ", header=None)
+            test_data.columns = ["id","cycle","op1","op2","op3","sensor1","sensor2","sensor3","sensor4","sensor5"
+                    ,"sensor6","sensor7","sensor8","sensor9","sensor10","sensor11","sensor12","sensor13"
+                    ,"sensor14","sensor15","sensor16","sensor17","sensor18","sensor19"
+                    ,"sensor20","sensor21","sensor22","sensor23"]
+            
+            test_data.drop(['sensor9','sensor22','sensor23'], axis=1, inplace=True)
+            test_data.to_csv('artifacts/data_validation/output_test_data.csv', index=False)
+
+            
+            jet_id_and_rul_test = test_data.groupby(['id'])[["id" ,"cycle"]].max()
+            jet_id_and_rul_test.set_index('id', inplace=True)
+            jet_id_and_rul_test.to_csv('artifacts/data_validation/jet_id_and_rul_test.csv', index=False)
 
 
             all_cols = list(data.columns)

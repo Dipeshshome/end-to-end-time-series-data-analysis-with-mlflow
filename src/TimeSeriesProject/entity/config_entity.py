@@ -14,12 +14,14 @@ class DataValidationConfig:
     root_dir: Path
     STATUS_FILE: str
     unzip_data_dir: Path
+    unzip_data_dir_2: Path
     all_schema: dict
 
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
     data_path: Path
+    data_path_2: Path
 
 @dataclass(frozen=True)
 class PrepareBaseModelConfig:

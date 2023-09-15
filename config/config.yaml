@@ -11,11 +11,13 @@ data_ingestion:
 data_validation:
   root_dir: artifacts/data_validation
   unzip_data_dir: artifacts\data_ingestion\Dataset\train_FD001.txt
+  unzip_data_dir_2: artifacts\data_ingestion\Dataset\test_FD001.txt
   STATUS_FILE: artifacts/data_validation/status.txt
 
 data_transformation:
   root_dir: artifacts/data_transformation
   data_path: artifacts\data_validation\relevent_data.csv
+  data_path_2: artifacts\data_validation\output_test_data.csv
 
 prepare_base_model:
   root_dir: artifacts/prepare_base_model

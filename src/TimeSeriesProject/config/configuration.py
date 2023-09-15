@@ -27,7 +27,7 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             source_URL=config.source_URL,
             local_data_file=config.local_data_file,
-            unzip_dir=config.unzip_dir 
+            unzip_dir=config.unzip_dir
         )
 
         return data_ingestion_config
@@ -42,6 +42,7 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             STATUS_FILE=config.STATUS_FILE,
             unzip_data_dir = config.unzip_data_dir,
+            unzip_data_dir_2 = config.unzip_data_dir_2,
             all_schema=schema,
         )
 
@@ -56,6 +57,7 @@ class ConfigurationManager:
         data_transformation_config = DataTransformationConfig(
             root_dir=config.root_dir,
             data_path=config.data_path,
+            data_path_2=config.data_path_2,
         )
 
         return data_transformation_config
