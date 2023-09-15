@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Website</title>
+</head>
+
+<body>
+    <h1>Simple Website with Upload and Predict Buttons</h1>
+
+    <input type="file" id="fileInput" accept=".csv"><br><br>
+
+    <button onclick="uploadFile()">Upload</button>
+    <button onclick="predict()">Predict</button>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            // You can add file upload logic here
+            console.log('File uploaded:', file.name);
+        }
+
+        function predict() {
+            // You can add prediction logic here
+            const iframe = document.createElement('iframe');
+            iframe.title = 'Time Series Analysis';
+            iframe.width = '1140';
+            iframe.height = '541.25';
+            iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=90747caa-82e7-4b68-9f2e-7876398c6f49&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            iframe.frameBorder = '0';
+            iframe.allowFullscreen = true;
+
+            // Replace the existing iframe (if any) with the new one
+            const existingIframe = document.getElementById('predictionIframe');
+            if (existingIframe) {
+                existingIframe.parentNode.replaceChild(iframe, existingIframe);
+            } else {
+                iframe.id = 'predictionIframe';  // Assign an ID to the iframe
+                document.body.appendChild(iframe);
+            }
+            console.log('Predict button clicked');
+        }
+    </script>
+</body>
+
+</html>
