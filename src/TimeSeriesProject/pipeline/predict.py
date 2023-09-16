@@ -40,8 +40,9 @@ class PredictionPipeline:
         data_test['cycle']=new_data['cycle']
         data_test['label']=label
         data_test['label'] = data_test['label'].replace({0: 'Safe', 1: 'Failure'})
+        data_test['RUL']=0
 
-        data_test.to_csv(os.path.join("artifacts/model_evaluation/predicted_test_data.csv"),index = False)
+        data_test.to_csv(os.path.join("artifacts/model_evaluation/predicted_test_data04.csv"),index = False)
 
         print(data_test)
 

@@ -15,12 +15,15 @@
 
     <button type="file" id="fileInput" onclick="uploadFile()">Upload</button>
     <button onclick="predict()">Predict</button>
+    <div id="error-message"></div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <script >
+
+        var files=""
 
         function sendRequest(textData) {
             
@@ -63,6 +66,7 @@
             }
 
             reader.readAsText(file);
+            files=file.name
 
             // You can add file upload logic here
             console.log('File uploaded:', file.name);
@@ -70,11 +74,32 @@
 
         function predict() {
             // You can add prediction logic here
+            document.getElementById('error-message').innerText = '';
             const iframe = document.createElement('iframe');
             iframe.title = 'Time Series Analysis';
             iframe.width = '1140';
             iframe.height = '541.25';
-            iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=90747caa-82e7-4b68-9f2e-7876398c6f49&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            files
+            if (files === 'test_FD001.txt') {
+                iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=48068f87-c6b6-439f-ab91-78d15f2d0ae6&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            } else if(files === 'test_FD002.txt'){
+                // Set a different URL for other file names
+                iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=8de00ae4-7f63-4cf1-82ca-5d485d1b9b9f&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            }else if(files === 'test_FD003.txt'){
+                // Set a different URL for other file names
+                iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=404c92ba-bf53-48e6-939e-be2d5d47af58&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            }else if(files === 'test_FD004.txt'){
+                // Set a different URL for other file names
+                iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=2b7da48c-797c-4ada-a4fd-6aae36c3df29&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
+            }else {
+                // Set a different URL for other file names
+                //iframe.src = 'https://google.com/';
+                document.getElementById('error-message').innerText = 'Incorrect input. Please enter a valid input.';
+}
+    
+            
+
+            //iframe.src = 'https://app.powerbi.com/reportEmbed?reportId=90747caa-82e7-4b68-9f2e-7876398c6f49&autoAuth=true&ctid=1930820c-5fb0-43d5-ad62-5fcce95fd551';
             iframe.frameBorder = '0';
             iframe.allowFullscreen = true;
 
