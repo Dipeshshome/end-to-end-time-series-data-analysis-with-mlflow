@@ -3,7 +3,7 @@ RUN apt update -y && apt install awscli -y
 WORKDIR /app
 
 COPY . /app
-RUN pip instll -r requirements.txt
+RUN pip insatll -r requirements.txt
 
 CMD ["python3","app.py"]
 
